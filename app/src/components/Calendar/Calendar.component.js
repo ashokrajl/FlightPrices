@@ -11,7 +11,7 @@ Date.prototype.addDays = function(days) {
   return this;
 };
 
-export default class MyCalendar extends React.Component<MainPageProps, MainPageState> {
+export default class MyCalendar extends React.Component<CalendarProps, CalendarState> {
 render(){
   const { events } = this.props;
   
