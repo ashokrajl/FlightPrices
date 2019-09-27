@@ -19,12 +19,8 @@ export default class MainPage extends React.Component<MainPageProps, MainPageSta
         this.props.getAPIKey();
     }
 
-
-   
-
-    
     render() {
-        const { getAPIKey, prices =[] } = this.props;
+        const { prices =[] } = this.props;
         const pricesArray = prices.map((data, i)=>{
             const eventObj = {};
             if(data && data.OutboundLeg){

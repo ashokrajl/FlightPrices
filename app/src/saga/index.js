@@ -1,4 +1,4 @@
-import {takeLatest, put, call} from 'redux-saga/effects'
+import {takeLatest, put} from 'redux-saga/effects'
 
 export default function* onFetchRecords() {
   yield takeLatest('GET_KEY', function* fetchAPIKey() {
