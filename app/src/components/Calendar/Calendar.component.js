@@ -23,6 +23,7 @@ render(){
       views={['month']}
       startAccessor="start"
       endAccessor="end"
+      defaultDate={new Date().addDays(20)}
     />
   </Wrapper>
   );

@@ -1,5 +1,5 @@
 import React from 'react';
-import FadeLoader from 'react-spinners/FadeLoader';
+import RingLoader from 'react-spinners/RingLoader';
 
 import MyCalendar from '../Calendar/Calendar.component';
 import SelectJourney from '../SelectJourney/SelectJourney.container';
@@ -8,12 +8,18 @@ const styles = {
     loaderWrapper: {
         position: 'absolute',
         top: '40%',
-        left: '50%'
+        left: '45%'
     },
     selectStyle: {
         display: 'flex',      
         justifyContent: 'center',
         paddingBottom: '30px'
+    },
+    error: {
+        color: 'red',
+        fontSize: '20px',
+        paddingLeft: '30%',
+        paddingBottom: '2%'
     }
 }
 export default class MainPage extends React.Component<MainPageProps, MainPageState> {
@@ -28,14 +34,15 @@ export default class MainPage extends React.Component<MainPageProps, MainPageSta
     }
 
     render() {
-        const { prices = [] } = this.props;
+        const { prices = [], error } = this.props;
+        
         let pricesArray = [];
         if(prices && prices.length > 0){
             pricesArray = prices.map((data, i) => {
                 const eventObj = {};
                 if (data && data.OutboundLeg) {
                     eventObj['id'] = i;
-                    eventObj['title'] = data.MinPrice;
+                    eventObj['title'] = `$${data.MinPrice}`;
                     eventObj['start'] = new Date(data.OutboundLeg.DepartureDate);
                     eventObj['end'] = new Date(data.OutboundLeg.DepartureDate);
                 }
@@ -43,18 +50,17 @@ export default class MainPage extends React.Component<MainPageProps, MainPageSta
             });
         }
 
-
         return (
             <div className="app">
                 <div style={styles.selectStyle} >
                     <SelectJourney />
                 </div>
+            {error && <div style={styles.error}> Some Error Occured! Please check API</div>}
                 <MyCalendar events={pricesArray} />
                 <div style={styles.loaderWrapper}>
-                    <FadeLoader
-                        sizeUnit={"px"}
+                    <RingLoader
                         size={150}
-                        color={'#03a9f4c7'}
+                        color={'#4A90E2'}
                         loading={this.props.loading}
                     />
                 </div>

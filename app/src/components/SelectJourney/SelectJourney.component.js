@@ -18,7 +18,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function ControlledOpenSelect(props) {
-    console.log(props)
     const classes = useStyles();
     const [route, setRoute] = React.useState('');
     const [open, setOpen] = React.useState(false);

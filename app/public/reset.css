@@ -1,4 +1,13 @@
 .rbc-event{
-    background-color: antiquewhite;
-    color: darkgreen;
+    background-color: white !important;
+    color: darkgreen !important;
+    text-align: center !important;
+    width: 60px !important;
+    margin-left: 25% !important;
+}
+
+.rbc-date-cell{
+    font-size: 33px !important;
+    padding-top: 10px !important;
+    text-align: center !important;
 }
