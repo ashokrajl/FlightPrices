@@ -10,7 +10,7 @@
     "react-big-calendar": "^0.22.1",
     "react-dom": "^16.9.0",
     "react-redux": "^5.0.7",
-    "react-scripts": "3.1.2",
+    "react-scripts": "5.0.1",
     "react-spinners": "^0.6.1",
     "redux": "^4.0.4",
     "redux-saga": "^1.1.1",
